@@ -1,0 +1,207 @@
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Primary (purple) card */
+.cardPrimary {
+  background: linear-gradient(145deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 2rem;
+  color: var(--color-white);
+  box-shadow: 0 12px 40px rgba(123, 47, 190, 0.35);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cardPrimaryBadge {
+  display: flex;
+}
+
+.price {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  line-height: 1;
+}
+
+.dollar {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  opacity: 0.85;
+}
+
+.amount {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.per {
+  font-size: 1.1rem;
+  opacity: 0.75;
+  align-self: flex-end;
+  padding-bottom: 0.75rem;
+}
+
+.priceNote {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  margin-top: -0.75rem;
+}
+
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.features li {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deposit {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  backdrop-filter: blur(4px);
+}
+
+.bookBtn {
+  display: block;
+  text-align: center;
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.bookBtn:hover {
+  background: var(--color-accent-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Discounts card */
+.cardDiscounts {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 1px solid rgba(192, 132, 252, 0.15);
+}
+
+.discountTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: -0.5rem 0 0;
+}
+
+.discountSub {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.discountItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.discountIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.discountLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: 0.2rem;
+}
+
+.discountPct {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.discountDesc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(192, 132, 252, 0.15);
+}
+
+.instagramCta {
+  margin-top: 0.25rem;
+}
+
+.igLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: 0.6rem 1.25rem;
+  border: 1.5px solid var(--color-accent-soft);
+  border-radius: var(--radius-btn);
+  background: var(--color-accent-soft);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.igLink:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

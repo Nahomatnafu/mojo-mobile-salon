@@ -1,0 +1,171 @@
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.depositNotice {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--color-white);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1.25rem 1.25rem 1.25rem 1rem;
+  box-shadow: var(--shadow-card);
+}
+
+.depositIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.depositNotice strong {
+  display: block;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+.depositNotice p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-white);
+  border: 1.5px solid rgba(192, 132, 252, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.fieldIcon {
+  font-size: 1rem;
+}
+
+/* CTA Column */
+.ctaCol {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaCard {
+  background: linear-gradient(145deg, #3D0A6B 0%, var(--color-primary) 100%);
+  border-radius: var(--radius-card);
+  padding: 3rem 2.5rem;
+  color: var(--color-white);
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(123, 47, 190, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.ctaIcon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.ctaSub {
+  font-size: 0.95rem;
+  opacity: 0.82;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.ctaBtn {
+  display: block;
+  width: 100%;
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.ctaBtn:hover {
+  background: var(--color-accent-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+.ctaOr {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin: -0.25rem 0;
+}
+
+.ctaPhone {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: opacity var(--transition);
+}
+
+.ctaPhone:hover {
+  opacity: 0.85;
+}
+
+.ctaFootnotes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  opacity: 0.7;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1rem;
+  width: 100%;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .fields {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaCard {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,94 @@
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.header .section-sub {
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.75rem;
+}
+
+.card {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 2.25rem 1.75rem 1.75rem;
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--color-primary);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.cardTag {
+  position: absolute;
+  top: -1px;
+  right: 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.icon {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+.cardLink {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: letter-spacing var(--transition);
+  margin-top: auto;
+}
+
+.cardLink:hover {
+  letter-spacing: 0.02em;
+}
+
+.note {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 0.875rem;
+  color: var(--color-gray);
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

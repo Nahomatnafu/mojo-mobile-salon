@@ -1,0 +1,105 @@
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.discountBanner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-accent-soft);
+  color: var(--color-primary-dark);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius-btn);
+  border: 1.5px solid rgba(192, 132, 252, 0.3);
+}
+
+.discountBannerIcon {
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(192, 132, 252, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  border-top: 1px solid rgba(192, 132, 252, 0.12);
+  padding-top: 1rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.detail {
+  font-size: 0.8rem;
+  color: var(--color-gray);
+  margin-top: 0.1rem;
+}
+
+.igCta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.igCta p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
