@@ -1,3 +1,4 @@
+import logo from '../assets/mojo_logo.png'
 import styles from './Footer.module.css'
 
 const navLinks = [
@@ -18,8 +19,7 @@ export default function Footer() {
       <div className={`${styles.inner} container`}>
         <div className={styles.brand}>
           <a href="#hero" className={styles.logoLink}>
-            <span className={styles.logoMojo}>MOJO</span>
-            <span className={styles.logoSub}>Mobile Suites Salon</span>
+            <img src={logo} alt="Mojo Mobile Suites Salon" className={styles.logoImg} />
           </a>
           <p className={styles.tagline}>&ldquo;The Real Personal Touch&rdquo;</p>
           <span className={styles.badge}>✅ Licensed &amp; Insured</span>

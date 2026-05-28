@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import logo from '../assets/mojo_logo.png'
 import styles from './Navbar.module.css'
 
 const links = [
@@ -25,8 +26,7 @@ export default function Navbar() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <nav className={`${styles.nav} container`}>
         <a href="#hero" className={styles.logo} onClick={handleLinkClick}>
-          <span className={styles.logoMojo}>MOJO</span>
-          <span className={styles.logoSub}>Mobile Suites</span>
+          <img src={logo} alt="Mojo Mobile Suites Salon" className={styles.logoImg} />
         </a>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
