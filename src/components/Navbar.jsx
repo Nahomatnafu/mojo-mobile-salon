@@ -5,8 +5,7 @@ import styles from './Navbar.module.css'
 const links = [
   { label: 'About',    href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Pricing',  href: '#pricing' },
-  { label: 'Book',     href: '#booking' },
+  { label: 'Gallery',  href: '#gallery' },
   { label: 'Contact',  href: '#contact' },
 ]
 
@@ -37,6 +36,11 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <a href="#pricing" className="btn-outline" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }} onClick={handleLinkClick}>
+              Pricing
+            </a>
+          </li>
           <li>
             <a href="#booking" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }} onClick={handleLinkClick}>
               Book Now

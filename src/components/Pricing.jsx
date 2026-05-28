@@ -1,84 +1,142 @@
+import { useState } from 'react'
 import SectionWrapper from './shared/SectionWrapper'
-import Badge from './shared/Badge'
 import styles from './Pricing.module.css'
 
+const cats = [
+  { id:'hair', icon:'💇', label:'Hair Services', services:[
+    {name:'Hair Cut', price:'$35–$100'},
+    {name:'Razor Cut', price:'$75–$100'},
+    {name:'Bang Trim', price:'$20'},
+    {name:'Hair Wash', price:'$10–$20'},
+    {name:'Blowout', price:'$45–$75'},
+    {name:'Updo', price:'$85–$150'},
+  ]},
+  { id:'color', icon:'🎨', label:'Hair Color', services:[
+    {name:'Single Process (touch up to full color)', price:'$85–$150'},
+    {name:'Highlights Special Effects (partial)', price:'$12 / foil'},
+    {name:'Highlights or Lowlights – Half Head', price:'$165–$185'},
+    {name:'Highlights or Lowlights – Full Head', price:'$195–$250'},
+    {name:'Fashion Vivid Hair Colors', price:'$220–$300'},
+    {name:'Balayage or Ombré – Half', price:'$165–$185'},
+    {name:'Balayage or Ombré – Full', price:'$200–$250'},
+    {name:'Air Touch Highlights – Half', price:'$200–$250'},
+    {name:'Air Touch Highlights – Full', price:'$350–$400'},
+    {name:'Air Touch Balayage – Half', price:'$220–$275'},
+    {name:'Air Touch Balayage – Full', price:'$350–$450'},
+    {name:'Color Gloss', price:'$75–$120'},
+    {name:'Toner', price:'$45–$75'},
+    {name:'Double Process', price:'$160–$250'},
+    {name:'Corrective Color', price:null, consult:true},
+  ]},
+  { id:'treatment', icon:'🧴', label:'Hair Treatment', services:[
+    {name:'Moroccan Oil Deep Treatment', price:'$45–$65'},
+    {name:'Olaplex Treatment', price:'$45–$75'},
+  ]},
+  { id:'retexture', icon:'🌀', label:'Retexture', services:[
+    {name:'Body Waves', price:'$120–$200'},
+    {name:'Keratin Treatment or Brazilian Blowout', price:'$275–$400'},
+  ]},
+  { id:'bridal', icon:'💍', label:'Bridal', services:[
+    {name:'Bridal Hair / Make Up', price:null, consult:true},
+    {name:'Make Up', price:'$100–$175'},
+  ]},
+  { id:'shaving', icon:'🪒', label:'Shaving', services:[
+    {name:'Royal Shave', price:'$40–$50'},
+    {name:'Shape Up', price:'$25–$35'},
+    {name:'Beard Trim', price:'$10–$25'},
+  ]},
+  { id:'waxing', icon:'🌿', label:'Waxing & Threading', services:[
+    {name:'Eyebrows Master Shape', price:'$20–$25'},
+    {name:'Almond Treatment (Nurture Eyebrows)', price:'$10'},
+    {name:'Chin', price:'$15'},
+    {name:'Lip', price:'$10–$15'},
+    {name:'Eyebrows + Lip', price:'$35–$40'},
+    {name:'Eyebrows + Lip + Chin', price:'$45–$65'},
+    {name:'Full Face', price:'$55–$70'},
+    {name:'Full Leg', price:'$55–$75'},
+    {name:'Full Leg with Bikini Line', price:'$95–$115'},
+    {name:'Bikini Line', price:'$35–$45'},
+    {name:'Brazilian Bikini', price:'$55–$75'},
+    {name:'Half Leg (Lower / Upper Leg)', price:'$45–$75'},
+    {name:'Half Leg with Bikini', price:'$75–$110'},
+    {name:'Underarm', price:'$25–$35'},
+    {name:'Arm (Half / Full)', price:'$35–$55'},
+  ]},
+  { id:'lashes', icon:'👁️', label:'Eyelash Extensions', note:'Available in Short, Medium, Long & Mix', services:[
+    {name:'Short Lashes – Full Set', price:'$65–$130'},
+    {name:'Medium Lashes – Full Set', price:'$75–$140'},
+    {name:'Long Lashes – Full Set', price:'$85–$165'},
+    {name:'Mix of Lashes (3 Options)', price:'$120–$200'},
+    {name:'Refill of Lashes', price:'$45–$75'},
+    {name:'Eyelash Tint', price:'$35–$45'},
+  ]},
+  { id:'massage', icon:'💆', label:'Massage', services:[
+    {name:'Scalp Massage', price:'$25–$35'},
+  ]},
+]
+
 export default function Pricing() {
+  const [active, setActive] = useState('hair')
+  const cat = cats.find(c => c.id === active)
+
   return (
     <SectionWrapper id="pricing">
       <div className="container">
+
         <div className={styles.header}>
           <span className="section-label">Transparent Pricing</span>
-          <h2 className="section-heading">Pricing &amp; <span>Rentals</span></h2>
+          <h2 className="section-heading">Service <span>Menu</span></h2>
           <p className="section-sub" style={{ margin: '0 auto' }}>
-            Fair, straightforward pricing with special discounts for our most valued clients.
+            All services are by appointment only. Prices may vary based on hair length and complexity.
           </p>
         </div>
 
-        <div className={styles.cards}>
-          {/* Day Rate Card */}
-          <div className={styles.cardPrimary}>
-            <div className={styles.cardPrimaryBadge}>
-              <Badge variant="white">Day Rate</Badge>
-            </div>
-            <div className={styles.price}>
-              <span className={styles.dollar}>$</span>
-              <span className={styles.amount}>525</span>
-              <span className={styles.per}>/day</span>
-            </div>
-            <p className={styles.priceNote}>7 hours included</p>
-            <ul className={styles.features}>
-              <li>✓ Full mobile salon unit</li>
-              <li>✓ Driver included</li>
-              <li>✓ + $12/mile with driver</li>
-              <li>✓ All onboard amenities</li>
-              <li>✓ Licensed &amp; insured</li>
-            </ul>
-            <div className={styles.deposit}>
-              <strong>$25 non-refundable deposit</strong> required at booking
-            </div>
-            <a href="#booking" className={styles.bookBtn}>Book Now</a>
-          </div>
+        <div className={styles.notices}>
+          <div className={styles.notice}><span>💳</span><span><strong>$25 non-refundable deposit</strong> required at booking</span></div>
+          <div className={styles.notice}><span>👴</span><span><strong>25% off</strong> for senior clients</span></div>
+          <div className={styles.notice}><span>⭐</span><span><strong>5% off</strong> your next visit for leaving a review</span></div>
+        </div>
 
-          {/* Discounts Card */}
-          <div className={styles.cardDiscounts}>
-            <span className="section-label">Special Discounts</span>
-            <h3 className={styles.discountTitle}>Save on Your Visit</h3>
-            <p className={styles.discountSub}>
-              We believe in rewarding loyalty and community. Here&rsquo;s how you can save:
-            </p>
+        <div className={styles.tabBar} role="tablist">
+          {cats.map(c => (
+            <button
+              key={c.id}
+              role="tab"
+              aria-selected={active === c.id}
+              className={`${styles.tab} ${active === c.id ? styles.tabActive : ''}`}
+              onClick={() => setActive(c.id)}
+            >
+              <span className={styles.tabIcon}>{c.icon}</span>
+              <span className={styles.tabLabel}>{c.label}</span>
+            </button>
+          ))}
+        </div>
 
-            <div className={styles.discountItem}>
-              <div className={styles.discountIcon}>👴</div>
-              <div>
-                <div className={styles.discountLabel}>Senior Discount</div>
-                <div className={styles.discountPct}>25% off</div>
-                <div className={styles.discountDesc}>Available for all senior clients. Just let us know when booking.</div>
+        <div className={styles.panel} role="tabpanel">
+          {cat.note && <p className={styles.panelNote}>ℹ️ {cat.note}</p>}
+          <div className={styles.rows}>
+            {cat.services.map(s => (
+              <div key={s.name} className={styles.row}>
+                <span className={styles.rowName}>{s.name}</span>
+                {s.consult
+                  ? <span className={styles.consult}>Upon consultation</span>
+                  : <span className={styles.rowPrice}>{s.price}</span>
+                }
               </div>
-            </div>
-
-            <div className={styles.divider} />
-
-            <div className={styles.discountItem}>
-              <div className={styles.discountIcon}>📱</div>
-              <div>
-                <div className={styles.discountLabel}>Social Media Review</div>
-                <div className={styles.discountPct}>5% off</div>
-                <div className={styles.discountDesc}>Leave a rating or comment about your experience and save on your next visit.</div>
-              </div>
-            </div>
-
-            <div className={styles.instagramCta}>
-              <a
-                href="https://www.instagram.com/mojomobilesuites"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.igLink}
-              >
-                📸 Follow @mojomobilesuites
-              </a>
-            </div>
+            ))}
           </div>
         </div>
+
+        <div className={styles.rentalCard}>
+          <h3 className={styles.rentalTitle}>🚐 &nbsp;Mobile Unit Rental</h3>
+          <div className={styles.rentalGrid}>
+            <div className={styles.rentalItem}><span className={styles.rentalKey}>Daily Rate</span><strong className={styles.rentalVal}>$525 / 7 hrs</strong></div>
+            <div className={styles.rentalItem}><span className={styles.rentalKey}>Mileage</span><strong className={styles.rentalVal}>+$12 / mile (with driver)</strong></div>
+            <div className={styles.rentalItem}><span className={styles.rentalKey}>Deposit</span><strong className={styles.rentalVal}>$25 non-refundable</strong></div>
+          </div>
+          <a href="#booking" className={styles.rentalBtn}>Book the Mobile Unit →</a>
+        </div>
+
       </div>
     </SectionWrapper>
   )
