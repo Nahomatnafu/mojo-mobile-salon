@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import SectionWrapper from './shared/SectionWrapper'
 import StarRating from './shared/StarRating'
+import InstagramIcon from './shared/InstagramIcon'
 import styles from './Reviews.module.css'
 
 const testimonials = [
@@ -42,7 +43,6 @@ export default function Reviews() {
           <span className="section-label">Client Love</span>
           <h2 className="section-heading">What Our <span>Clients</span> Say</h2>
           <div className={styles.discountBanner}>
-            <span className={styles.discountBannerIcon}>⭐</span>
             Leave a review after your visit and receive{' '}
             <strong>5% off</strong> your next appointment!
           </div>
@@ -76,9 +76,10 @@ export default function Reviews() {
             href="https://www.instagram.com/mojomobilesuites"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline"
+            className={`btn-outline ${styles.igBtn}`}
           >
-            📸 &nbsp;@mojomobilesuites
+            <InstagramIcon size={18} />
+            @mojomobilesuites
           </a>
         </div>
       </div>

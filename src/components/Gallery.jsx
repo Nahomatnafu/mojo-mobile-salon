@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SectionWrapper from './shared/SectionWrapper'
+import InstagramIcon from './shared/InstagramIcon'
 import styles from './Gallery.module.css'
 
 import photo01 from '../assets/photo_01.jpg'
@@ -83,8 +84,9 @@ export default function Gallery() {
             href="https://www.instagram.com/mojomobilesuites"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline"
+            className={`btn-outline ${styles.igBtn}`}
           >
+            <InstagramIcon size={18} />
             See More on Instagram
           </a>
         </div>

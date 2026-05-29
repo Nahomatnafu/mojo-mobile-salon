@@ -43,7 +43,9 @@ export default function Navbar({ page, onGoHome, onGoPricing }) {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <nav className={`${styles.nav} container`}>
         <button className={styles.logo} onClick={handleLogoClick} aria-label="Go to home">
-          <img src={logo} alt="Mojo Mobile Suites Salon" className={styles.logoImg} />
+          <div className={styles.logoCircle}>
+            <img src={logo} alt="Mojo Mobile Suites Salon" className={styles.logoImg} />
+          </div>
         </button>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>

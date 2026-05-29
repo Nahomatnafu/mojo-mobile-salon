@@ -1,4 +1,5 @@
 import logo from '../assets/mojo_logo.png'
+import InstagramIcon from './shared/InstagramIcon'
 import styles from './Footer.module.css'
 
 const navLinks = [
@@ -18,11 +19,13 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`${styles.inner} container`}>
         <div className={styles.brand}>
-          <a href="#hero" className={styles.logoLink}>
-            <img src={logo} alt="Mojo Mobile Suites Salon" className={styles.logoImg} />
-          </a>
+          <div className={styles.logoLink}>
+            <div className={styles.logoCircle}>
+              <img src={logo} alt="Mojo Mobile Suites Salon" className={styles.logoImg} />
+            </div>
+          </div>
           <p className={styles.tagline}>&ldquo;The Real Personal Touch&rdquo;</p>
-          <span className={styles.badge}>✅ Licensed &amp; Insured</span>
+          <span className={styles.badge}>Licensed &amp; Insured</span>
         </div>
 
         <div className={styles.links}>
@@ -40,21 +43,22 @@ export default function Footer() {
           <h4 className={styles.colTitle}>Contact</h4>
           <div className={styles.infoItems}>
             <a href="tel:+12127319918" className={styles.infoItem}>
-              📞 (212) 731-9918
+              (212) 731-9918
             </a>
             <div className={styles.infoItem}>
-              📍 Manhattan Ave, Manhattan, NY 10025
+              Manhattan Ave, Manhattan, NY 10025
             </div>
             <div className={styles.infoItem}>
-              🕕 Mon–Sun &nbsp;6:00 AM – 9:00 PM
+              Mon–Sun &nbsp;6:00 AM – 9:00 PM
             </div>
             <a
               href="https://www.instagram.com/mojomobilesuites"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.infoItem}
+              className={`${styles.infoItem} ${styles.igItem}`}
             >
-              📸 @mojomobilesuites
+              <InstagramIcon size={15} />
+              @mojomobilesuites
             </a>
           </div>
         </div>

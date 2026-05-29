@@ -20,10 +20,6 @@
   border: 1.5px solid rgba(192, 132, 252, 0.3);
 }
 
-.discountBannerIcon {
-  font-size: 1.1rem;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -102,4 +98,10 @@
 .igCta p {
   font-size: 1rem;
   color: var(--color-text-muted);
+}
+
+.igBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }

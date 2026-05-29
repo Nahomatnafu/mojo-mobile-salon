@@ -78,6 +78,12 @@
   margin-top: 2.5rem;
 }
 
+.igBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 /* ── Lightbox ────────────────────────────────── */
 .lightboxBackdrop {
   position: fixed;

@@ -23,13 +23,24 @@
   align-items: center;
 }
 
+.logoCircle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
 .logoImg {
-  height: 64px;
-  width: auto;
-  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  /* Invert to white so it's visible on the dark purple footer */
-  filter: brightness(0) invert(1);
+  padding: 10px;
+  display: block;
 }
 
 .tagline {
@@ -112,6 +123,12 @@
 
 a.infoItem:hover {
   color: var(--color-accent);
+}
+
+.igItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 /* Bottom bar */
