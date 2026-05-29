@@ -61,10 +61,11 @@
 
 @media (max-width: 480px) {
   .grid {
-    gap: 1.5rem;
+    gap: 1.25rem;
+    justify-content: space-evenly;
   }
 
   .item {
-    width: 140px;
+    width: 120px;
   }
 }
