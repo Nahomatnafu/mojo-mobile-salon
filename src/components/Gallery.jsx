@@ -4,8 +4,6 @@ import SectionWrapper from './shared/SectionWrapper'
 import styles from './Gallery.module.css'
 
 import photo01 from '../assets/photo_01.jpg'
-import photo02 from '../assets/photo_02.jpg'
-import photo03 from '../assets/photo_03.jpg'
 import photo04 from '../assets/photo_04.jpg'
 import photo05 from '../assets/photo_05.jpg'
 import photo06 from '../assets/photo_06.jpg'
@@ -17,8 +15,6 @@ import photo11 from '../assets/photo_11.jpg'
 
 const photos = [
   { src: photo01, alt: 'Mojo Mobile Suites Salon — interior view 1' },
-  { src: photo02, alt: 'Mojo Mobile Suites Salon — interior view 2' },
-  { src: photo03, alt: 'Mojo Mobile Suites Salon — interior view 3' },
   { src: photo04, alt: 'Mojo Mobile Suites Salon — interior view 4' },
   { src: photo05, alt: 'Mojo Mobile Suites Salon — interior view 5' },
   { src: photo06, alt: 'Mojo Mobile Suites Salon — interior view 6' },
@@ -77,9 +73,7 @@ export default function Gallery() {
               aria-label={`View photo ${i + 1} of ${photos.length}`}
             >
               <img src={photo.src} alt={photo.alt} className={styles.img} loading="lazy" />
-              <div className={styles.overlay}>
-                <span className={styles.zoomIcon}>🔍</span>
-              </div>
+              <div className={styles.overlay} />
             </motion.button>
           ))}
         </motion.div>
@@ -91,7 +85,7 @@ export default function Gallery() {
             rel="noopener noreferrer"
             className="btn-outline"
           >
-            📸 &nbsp;See More on Instagram
+            See More on Instagram
           </a>
         </div>
       </div>

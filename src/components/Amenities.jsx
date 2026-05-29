@@ -3,11 +3,11 @@ import SectionWrapper from './shared/SectionWrapper'
 import styles from './Amenities.module.css'
 
 const amenities = [
-  { icon: '📶', label: 'Free Wi-Fi',          desc: 'Stay connected throughout your visit' },
-  { icon: '📺', label: 'Cable TV',            desc: 'Enjoy live TV while you relax' },
-  { icon: '🎵', label: 'Music',               desc: 'Great vibes, your soundtrack' },
-  { icon: '🔌', label: 'Phone Charging',      desc: 'Keep your devices powered up' },
-  { icon: '🍹', label: 'Complimentary Drinks', desc: 'Refresh with a complimentary beverage' },
+  { letter: 'Wi', label: 'Free Wi-Fi',          desc: 'Stay connected throughout your visit' },
+  { letter: 'TV', label: 'Cable TV',            desc: 'Enjoy live TV while you relax' },
+  { letter: 'M',  label: 'Music',               desc: 'Great vibes, your soundtrack' },
+  { letter: 'C',  label: 'Phone Charging',      desc: 'Keep your devices powered up' },
+  { letter: 'D',  label: 'Complimentary Drinks', desc: 'Refresh with a complimentary beverage' },
 ]
 
 const container = {
@@ -42,7 +42,7 @@ export default function Amenities() {
           {amenities.map((a) => (
             <motion.div key={a.label} className={styles.item} variants={itemAnim}>
               <div className={styles.iconWrap}>
-                <span className={styles.icon}>{a.icon}</span>
+                <span className={styles.letter}>{a.letter}</span>
               </div>
               <h3 className={styles.label}>{a.label}</h3>
               <p className={styles.desc}>{a.desc}</p>

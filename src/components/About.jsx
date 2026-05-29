@@ -4,10 +4,10 @@ import Badge from './shared/Badge'
 import styles from './About.module.css'
 
 const pills = [
-  '✅ 100% Licensed & Insured',
-  '✂️ Unisex Services',
-  '📅 By Appointment Only',
-  '🗽 Manhattan, NY',
+  'Licensed & Insured',
+  'Unisex Services',
+  'By Appointment Only',
+  'Manhattan, NY',
 ]
 
 export default function About() {

@@ -29,6 +29,15 @@
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.pricingActive {
+  background: var(--color-primary) !important;
+  color: var(--color-white) !important;
 }
 
 .logoImg {

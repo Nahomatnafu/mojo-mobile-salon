@@ -3,7 +3,7 @@ import SectionWrapper from './shared/SectionWrapper'
 import styles from './Pricing.module.css'
 
 const cats = [
-  { id:'hair', icon:'💇', label:'Hair Services', services:[
+  { id:'hair', label:'Hair Services', services:[
     {name:'Hair Cut', price:'$35–$100'},
     {name:'Razor Cut', price:'$75–$100'},
     {name:'Bang Trim', price:'$20'},
@@ -11,7 +11,7 @@ const cats = [
     {name:'Blowout', price:'$45–$75'},
     {name:'Updo', price:'$85–$150'},
   ]},
-  { id:'color', icon:'🎨', label:'Hair Color', services:[
+  { id:'color', label:'Hair Color', services:[
     {name:'Single Process (touch up to full color)', price:'$85–$150'},
     {name:'Highlights Special Effects (partial)', price:'$12 / foil'},
     {name:'Highlights or Lowlights – Half Head', price:'$165–$185'},
@@ -28,24 +28,24 @@ const cats = [
     {name:'Double Process', price:'$160–$250'},
     {name:'Corrective Color', price:null, consult:true},
   ]},
-  { id:'treatment', icon:'🧴', label:'Hair Treatment', services:[
+  { id:'treatment', label:'Hair Treatment', services:[
     {name:'Moroccan Oil Deep Treatment', price:'$45–$65'},
     {name:'Olaplex Treatment', price:'$45–$75'},
   ]},
-  { id:'retexture', icon:'🌀', label:'Retexture', services:[
+  { id:'retexture', label:'Retexture', services:[
     {name:'Body Waves', price:'$120–$200'},
     {name:'Keratin Treatment or Brazilian Blowout', price:'$275–$400'},
   ]},
-  { id:'bridal', icon:'💍', label:'Bridal', services:[
+  { id:'bridal', label:'Bridal', services:[
     {name:'Bridal Hair / Make Up', price:null, consult:true},
     {name:'Make Up', price:'$100–$175'},
   ]},
-  { id:'shaving', icon:'🪒', label:'Shaving', services:[
+  { id:'shaving', label:'Shaving', services:[
     {name:'Royal Shave', price:'$40–$50'},
     {name:'Shape Up', price:'$25–$35'},
     {name:'Beard Trim', price:'$10–$25'},
   ]},
-  { id:'waxing', icon:'🌿', label:'Waxing & Threading', services:[
+  { id:'waxing', label:'Waxing & Threading', services:[
     {name:'Eyebrows Master Shape', price:'$20–$25'},
     {name:'Almond Treatment (Nurture Eyebrows)', price:'$10'},
     {name:'Chin', price:'$15'},
@@ -62,7 +62,7 @@ const cats = [
     {name:'Underarm', price:'$25–$35'},
     {name:'Arm (Half / Full)', price:'$35–$55'},
   ]},
-  { id:'lashes', icon:'👁️', label:'Eyelash Extensions', note:'Available in Short, Medium, Long & Mix', services:[
+  { id:'lashes', label:'Eyelash Extensions', note:'Available in Short, Medium, Long & Mix', services:[
     {name:'Short Lashes – Full Set', price:'$65–$130'},
     {name:'Medium Lashes – Full Set', price:'$75–$140'},
     {name:'Long Lashes – Full Set', price:'$85–$165'},
@@ -70,19 +70,18 @@ const cats = [
     {name:'Refill of Lashes', price:'$45–$75'},
     {name:'Eyelash Tint', price:'$35–$45'},
   ]},
-  { id:'massage', icon:'💆', label:'Massage', services:[
+  { id:'massage', label:'Massage', services:[
     {name:'Scalp Massage', price:'$25–$35'},
   ]},
 ]
 
-export default function Pricing() {
+export default function Pricing({ fullPage = false }) {
   const [active, setActive] = useState('hair')
   const cat = cats.find(c => c.id === active)
 
-  return (
-    <SectionWrapper id="pricing">
-      <div className="container">
-
+  const inner = (
+    <div className="container">
+      {!fullPage && (
         <div className={styles.header}>
           <span className="section-label">Transparent Pricing</span>
           <h2 className="section-heading">Service <span>Menu</span></h2>
@@ -90,54 +89,56 @@ export default function Pricing() {
             All services are by appointment only. Prices may vary based on hair length and complexity.
           </p>
         </div>
+      )}
 
-        <div className={styles.notices}>
-          <div className={styles.notice}><span>💳</span><span><strong>$25 non-refundable deposit</strong> required at booking</span></div>
-          <div className={styles.notice}><span>👴</span><span><strong>25% off</strong> for senior clients</span></div>
-          <div className={styles.notice}><span>⭐</span><span><strong>5% off</strong> your next visit for leaving a review</span></div>
-        </div>
+      <div className={styles.notices}>
+        <div className={styles.notice}><strong>$25 non-refundable deposit</strong> required at booking</div>
+        <div className={styles.notice}><strong>25% off</strong> for senior clients</div>
+        <div className={styles.notice}><strong>5% off</strong> your next visit for leaving a review</div>
+      </div>
 
-        <div className={styles.tabBar} role="tablist">
-          {cats.map(c => (
-            <button
-              key={c.id}
-              role="tab"
-              aria-selected={active === c.id}
-              className={`${styles.tab} ${active === c.id ? styles.tabActive : ''}`}
-              onClick={() => setActive(c.id)}
-            >
-              <span className={styles.tabIcon}>{c.icon}</span>
-              <span className={styles.tabLabel}>{c.label}</span>
-            </button>
+      <div className={styles.tabBar} role="tablist">
+        {cats.map(c => (
+          <button
+            key={c.id}
+            role="tab"
+            aria-selected={active === c.id}
+            className={`${styles.tab} ${active === c.id ? styles.tabActive : ''}`}
+            onClick={() => setActive(c.id)}
+          >
+            <span className={styles.tabLabel}>{c.label}</span>
+          </button>
+        ))}
+      </div>
+
+      <div className={styles.panel} role="tabpanel">
+        {cat.note && <p className={styles.panelNote}>{cat.note}</p>}
+        <div className={styles.rows}>
+          {cat.services.map(s => (
+            <div key={s.name} className={styles.row}>
+              <span className={styles.rowName}>{s.name}</span>
+              {s.consult
+                ? <span className={styles.consult}>Upon consultation</span>
+                : <span className={styles.rowPrice}>{s.price}</span>
+              }
+            </div>
           ))}
         </div>
-
-        <div className={styles.panel} role="tabpanel">
-          {cat.note && <p className={styles.panelNote}>ℹ️ {cat.note}</p>}
-          <div className={styles.rows}>
-            {cat.services.map(s => (
-              <div key={s.name} className={styles.row}>
-                <span className={styles.rowName}>{s.name}</span>
-                {s.consult
-                  ? <span className={styles.consult}>Upon consultation</span>
-                  : <span className={styles.rowPrice}>{s.price}</span>
-                }
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.rentalCard}>
-          <h3 className={styles.rentalTitle}>🚐 &nbsp;Mobile Unit Rental</h3>
-          <div className={styles.rentalGrid}>
-            <div className={styles.rentalItem}><span className={styles.rentalKey}>Daily Rate</span><strong className={styles.rentalVal}>$525 / 7 hrs</strong></div>
-            <div className={styles.rentalItem}><span className={styles.rentalKey}>Mileage</span><strong className={styles.rentalVal}>+$12 / mile (with driver)</strong></div>
-            <div className={styles.rentalItem}><span className={styles.rentalKey}>Deposit</span><strong className={styles.rentalVal}>$25 non-refundable</strong></div>
-          </div>
-          <a href="#booking" className={styles.rentalBtn}>Book the Mobile Unit →</a>
-        </div>
-
       </div>
-    </SectionWrapper>
+
+      <div className={styles.rentalCard}>
+        <h3 className={styles.rentalTitle}>Mobile Unit Rental</h3>
+        <div className={styles.rentalGrid}>
+          <div className={styles.rentalItem}><span className={styles.rentalKey}>Daily Rate</span><strong className={styles.rentalVal}>$525 / 7 hrs</strong></div>
+          <div className={styles.rentalItem}><span className={styles.rentalKey}>Mileage</span><strong className={styles.rentalVal}>+$12 / mile (with driver)</strong></div>
+          <div className={styles.rentalItem}><span className={styles.rentalKey}>Deposit</span><strong className={styles.rentalVal}>$25 non-refundable</strong></div>
+        </div>
+        <a href="#booking" className={styles.rentalBtn}>Book the Mobile Unit →</a>
+      </div>
+    </div>
   )
+
+  if (fullPage) return inner
+
+  return <SectionWrapper id="pricing">{inner}</SectionWrapper>
 }

@@ -1,29 +1,28 @@
+import { useState, useCallback } from 'react'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Gallery from './components/Gallery'
-import Services from './components/Services'
-import Amenities from './components/Amenities'
-import Pricing from './components/Pricing'
-import Booking from './components/Booking'
-import Reviews from './components/Reviews'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
+import HomePage from './pages/HomePage'
+import PricingPage from './pages/PricingPage'
 
 export default function App() {
+  const [page, setPage] = useState('home')
+
+  const goHome = useCallback(() => {
+    setPage('home')
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [])
+
+  const goPricing = useCallback(() => {
+    setPage('pricing')
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [])
+
   return (
     <>
-      <Navbar />
+      <Navbar page={page} onGoHome={goHome} onGoPricing={goPricing} />
       <main>
-        <Hero />
-        <About />
-        <Gallery />
-        <Services />
-        <Amenities />
-        <Pricing />
-        <Booking />
-        <Reviews />
-        <Contact />
+        {page === 'home'    && <HomePage />}
+        {page === 'pricing' && <PricingPage onBack={goHome} />}
       </main>
       <Footer />
     </>

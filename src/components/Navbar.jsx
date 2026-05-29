@@ -9,7 +9,7 @@ const links = [
   { label: 'Contact',  href: '#contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ page, onGoHome, onGoPricing }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -19,14 +19,32 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
-  const handleLinkClick = () => setOpen(false)
+  const handleLinkClick = () => {
+    setOpen(false)
+    if (page === 'pricing') onGoHome()
+  }
+
+  const handleLogoClick = () => {
+    setOpen(false)
+    onGoHome()
+  }
+
+  const handlePricingClick = () => {
+    setOpen(false)
+    onGoPricing()
+  }
+
+  const handleBookClick = () => {
+    setOpen(false)
+    if (page === 'pricing') onGoHome()
+  }
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <nav className={`${styles.nav} container`}>
-        <a href="#hero" className={styles.logo} onClick={handleLinkClick}>
+        <button className={styles.logo} onClick={handleLogoClick} aria-label="Go to home">
           <img src={logo} alt="Mojo Mobile Suites Salon" className={styles.logoImg} />
-        </a>
+        </button>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>
           {links.map((l) => (
@@ -37,12 +55,16 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <a href="#pricing" className="btn-outline" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }} onClick={handleLinkClick}>
+            <button
+              className={`btn-outline ${page === 'pricing' ? styles.pricingActive : ''}`}
+              style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }}
+              onClick={handlePricingClick}
+            >
               Pricing
-            </a>
+            </button>
           </li>
           <li>
-            <a href="#booking" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }} onClick={handleLinkClick}>
+            <a href="#booking" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem' }} onClick={handleBookClick}>
               Book Now
             </a>
           </li>

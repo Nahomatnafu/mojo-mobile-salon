@@ -4,29 +4,44 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 50% 0%,   rgba(90, 31, 143, 0.95) 0%,  transparent 65%),
-    radial-gradient(ellipse at 0%  60%,  rgba(123, 47, 190, 0.7) 0%,  transparent 55%),
-    radial-gradient(ellipse at 100% 80%, rgba(192, 132, 252, 0.4) 0%, transparent 50%),
-    linear-gradient(160deg, #3D0A6B 0%, #7B2FBE 45%, #C084FC 100%);
+  background: #1A0535;
   padding: var(--nav-height) 0 0;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background: linear-gradient(
+    105deg,
+    rgba(20, 5, 45, 0.93) 0%,
+    rgba(20, 5, 45, 0.78) 50%,
+    rgba(20, 5, 45, 0.3) 100%
+  );
+  z-index: 1;
   pointer-events: none;
 }
 
 .content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding: 5rem var(--space-md) 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
 }
 
 .inner {
-  max-width: 680px;
+  /* left column — text */
 }
 
 .heading {
@@ -153,6 +168,58 @@
   height: 6px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Photo Column ───────────────────────────────── */
+.photoCol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroPhoto {
+  width: 100%;
+  max-width: 460px;
+  height: 580px;
+  object-fit: cover;
+  border-radius: 2rem;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.photoBadge {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .photoCol {
+    order: -1;
+  }
+
+  .heroPhoto {
+    height: 360px;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {

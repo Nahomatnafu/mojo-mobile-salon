@@ -16,7 +16,6 @@ export default function Booking() {
           </p>
 
           <aside className={styles.depositNotice}>
-            <span className={styles.depositIcon}>💳</span>
             <div>
               <strong>$25 Non-Refundable Deposit Required</strong>
               <p>A $25 deposit is required at the time of booking to secure your appointment. This deposit goes toward your total service cost.</p>
@@ -24,28 +23,15 @@ export default function Booking() {
           </aside>
 
           <div className={styles.fields}>
-            <div className={styles.field}>
-              <span className={styles.fieldIcon}>👤</span>
-              <span>Name</span>
-            </div>
-            <div className={styles.field}>
-              <span className={styles.fieldIcon}>📅</span>
-              <span>Date &amp; Time</span>
-            </div>
-            <div className={styles.field}>
-              <span className={styles.fieldIcon}>✂️</span>
-              <span>Style / Service</span>
-            </div>
-            <div className={styles.field}>
-              <span className={styles.fieldIcon}>💰</span>
-              <span>Price Estimate</span>
-            </div>
+            <div className={styles.field}>Name</div>
+            <div className={styles.field}>Date &amp; Time</div>
+            <div className={styles.field}>Style / Service</div>
+            <div className={styles.field}>Price Estimate</div>
           </div>
         </div>
 
         <div className={styles.ctaCol}>
           <div className={styles.ctaCard}>
-            <div className={styles.ctaIcon}>📆</div>
             <h3 className={styles.ctaTitle}>Ready to Book?</h3>
             <p className={styles.ctaSub}>
               Click below to select your date, time, and service. Our booking tool will guide you through the process.
@@ -64,13 +50,13 @@ export default function Booking() {
             <p className={styles.ctaOr}>or call us directly</p>
 
             <a href="tel:+12127319918" className={styles.ctaPhone}>
-              📞 (212) 731-9918
+              (212) 731-9918
             </a>
 
             <div className={styles.ctaFootnotes}>
-              <p>📅 By appointment only</p>
-              <p>🕕 Mon–Sun &nbsp;6:00 AM – 9:00 PM</p>
-              <p>📍 Manhattan Avenue, Manhattan, NY 10025</p>
+              <p>By appointment only</p>
+              <p>Mon–Sun &nbsp;6:00 AM – 9:00 PM</p>
+              <p>Manhattan Avenue, Manhattan, NY 10025</p>
             </div>
           </div>
         </div>

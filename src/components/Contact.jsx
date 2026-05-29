@@ -17,7 +17,6 @@ export default function Contact() {
           {/* Contact Details */}
           <div className={styles.details}>
             <a href="tel:+12127319918" className={styles.phoneBlock}>
-              <span className={styles.phoneIcon}>📞</span>
               <div>
                 <div className={styles.phoneLabel}>Call or Text</div>
                 <div className={styles.phoneNumber}>(212) 731-9918</div>
@@ -26,7 +25,6 @@ export default function Contact() {
 
             <div className={styles.infoItems}>
               <div className={styles.infoItem}>
-                <span className={styles.infoIcon}>📍</span>
                 <div>
                   <div className={styles.infoLabel}>Location</div>
                   <div className={styles.infoValue}>Manhattan Avenue<br />Manhattan, NY 10025</div>
@@ -34,7 +32,6 @@ export default function Contact() {
               </div>
 
               <div className={styles.infoItem}>
-                <span className={styles.infoIcon}>🕕</span>
                 <div>
                   <div className={styles.infoLabel}>Hours</div>
                   <div className={styles.infoValue}>Monday – Sunday<br />6:00 AM – 9:00 PM</div>
@@ -42,7 +39,6 @@ export default function Contact() {
               </div>
 
               <div className={styles.infoItem}>
-                <span className={styles.infoIcon}>📸</span>
                 <div>
                   <div className={styles.infoLabel}>Instagram</div>
                   <a
