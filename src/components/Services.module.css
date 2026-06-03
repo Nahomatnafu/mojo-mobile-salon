@@ -3,10 +3,7 @@
   margin-bottom: 3.5rem;
 }
 
-.header .section-sub {
-  margin: 0 auto;
-  text-align: center;
-}
+/* section-sub text-align is applied inline in JSX (global class, not CSS-module scoped) */
 
 .grid {
   display: grid;

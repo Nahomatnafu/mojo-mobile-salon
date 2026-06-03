@@ -5,15 +5,42 @@
 
 /* ── Contact Card ───────────────────────────────── */
 .card {
-  background: var(--color-white);
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  border: 1px solid rgba(192, 132, 252, 0.12);
+  box-shadow: 0 12px 48px rgba(123, 47, 190, 0.22);
+  border: 1px solid rgba(192, 132, 252, 0.18);
   padding: 2.5rem 2.5rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Blurred bg image layer */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  background: url('../assets/hair_we_go_bg.png') center / cover no-repeat;
+  filter: blur(14px);
+  z-index: 0;
+}
+
+/* Semi-transparent overlay to keep text readable */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.78);
+  z-index: 1;
+}
+
+/* All direct children sit above the bg layers */
+.card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .phoneBlock {

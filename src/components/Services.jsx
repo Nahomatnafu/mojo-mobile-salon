@@ -40,7 +40,7 @@ export default function Services() {
         <div className={styles.header}>
           <span className="section-label">What We Do</span>
           <h2 className="section-heading">Our <span>Services</span></h2>
-          <p className="section-sub">All services are by appointment only. Contact us to schedule your personal session.</p>
+          <p className="section-sub" style={{ textAlign: 'center', margin: '0 auto' }}>All services are by appointment only. Contact us to schedule your personal session.</p>
         </div>
 
         <motion.div
