@@ -1,4 +1,4 @@
-import bgImage from '../assets/background_image.jpg'
+import bgImage from '../assets/hair_we_go_bg.png'
 import Pricing from '../components/Pricing'
 import styles from './PricingPage.module.css'
 

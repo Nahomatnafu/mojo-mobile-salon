@@ -92,7 +92,7 @@ export default function Pricing({ fullPage = false }) {
       )}
 
       <div className={styles.notices}>
-        <div className={styles.notice}><strong>$25 non-refundable deposit</strong> required at booking</div>
+        <div className={styles.notice}><strong>Non-Refundable Deposit</strong> required at booking</div>
         <div className={styles.notice}><strong>25% off</strong> for senior clients</div>
         <div className={styles.notice}><strong>5% off</strong> your next visit for leaving a review</div>
       </div>
@@ -131,7 +131,7 @@ export default function Pricing({ fullPage = false }) {
         <div className={styles.rentalGrid}>
           <div className={styles.rentalItem}><span className={styles.rentalKey}>Daily Rate</span><strong className={styles.rentalVal}>$525 / 7 hrs</strong></div>
           <div className={styles.rentalItem}><span className={styles.rentalKey}>Mileage</span><strong className={styles.rentalVal}>+$12 / mile (with driver)</strong></div>
-          <div className={styles.rentalItem}><span className={styles.rentalKey}>Deposit</span><strong className={styles.rentalVal}>$25 non-refundable</strong></div>
+          <div className={styles.rentalItem}><span className={styles.rentalKey}>Deposit</span><strong className={styles.rentalVal}>Non-Refundable Deposit</strong></div>
         </div>
         <a href="#booking" className={styles.rentalBtn}>Book the Mobile Unit →</a>
       </div>

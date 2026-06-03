@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Badge from './shared/Badge'
-import bgImage from '../assets/background_image.jpg'
-import photo06 from '../assets/photo_06.jpg'
+import bgImage from '../assets/hair_we_go_bg.png'
+import heroPhoto from '../assets/photo_12_hero.jpg'
 import styles from './Hero.module.css'
 
 const container = {
@@ -33,13 +33,12 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1 variants={item} className={styles.heading}>
-            MOJO<br />
-            <span className={styles.headingAccent}>Mobile Suites</span><br />
-            Salon
+            HAIR WE GO<br />
+            <span className={styles.headingAccent}>Express</span>
           </motion.h1>
 
           <motion.p variants={item} className={styles.tagline}>
-            &ldquo;The Real Personal Touch&rdquo;
+            &ldquo;The Mobile Salon With a Real Personal Touch&rdquo;
           </motion.p>
 
           <motion.p variants={item} className={styles.sub}>
@@ -59,9 +58,9 @@ export default function Hero() {
           <motion.div variants={item} className={styles.hours}>
             <span>Manhattan Ave, NY 10025</span>
             <span className={styles.dot}>·</span>
-            <span>Mon–Sun &nbsp;6 AM – 9 PM</span>
+            <span>Mon–Sun &nbsp;9 AM – 9 PM</span>
             <span className={styles.dot}>·</span>
-            <a href="tel:+12127319918" className={styles.phone}>(212) 731-9918</a>
+            <a href="tel:+19176401279" className={styles.phone}>917-640-1279</a>
           </motion.div>
         </motion.div>
 
@@ -72,7 +71,7 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
         >
-          <img src={photo06} alt="Inside the Mojo Mobile Suites Salon" className={styles.heroPhoto} />
+          <img src={heroPhoto} alt="Inside the Hair We Go Express mobile salon" className={styles.heroPhoto} />
           <div className={styles.photoBadge}>
             <span>The Suite</span>
           </div>

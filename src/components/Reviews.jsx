@@ -8,7 +8,7 @@ const testimonials = [
   {
     name: 'Tamika R.',
     stars: 5,
-    text: 'The most personal salon experience I\'ve ever had. Mojo came right to my block for my daughter\'s graduation party. Five stars isn\'t enough!',
+    text: 'The most personal salon experience I\'ve ever had. Hair We Go Express came right to my block for my daughter\'s graduation party. Five stars isn\'t enough!',
     detail: 'Party Event Pull-Up',
   },
   {
@@ -73,13 +73,13 @@ export default function Reviews() {
         <div className={styles.igCta}>
           <p>Share your experience and tag us!</p>
           <a
-            href="https://www.instagram.com/mojomobilesuites"
+            href="https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv"
             target="_blank"
             rel="noopener noreferrer"
             className={`btn-outline ${styles.igBtn}`}
           >
             <InstagramIcon size={18} />
-            @mojomobilesuites
+            @hairwegoexpress
           </a>
         </div>
       </div>

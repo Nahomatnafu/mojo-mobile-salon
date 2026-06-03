@@ -20,7 +20,9 @@
 .logoLink {
   text-decoration: none;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
+  gap: 0.3rem;
 }
 
 .logoCircle {
@@ -40,6 +42,18 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.logoTagline {
+  font-family: var(--font-cursive);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-accent);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  display: block;
+  margin-top: 0.4rem;
+  text-align: center;
 }
 
 .tagline {

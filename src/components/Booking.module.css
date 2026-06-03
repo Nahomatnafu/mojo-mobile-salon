@@ -135,6 +135,19 @@
   text-align: left;
 }
 
+.ctaContactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.ctaContactLink:hover {
+  opacity: 0.9;
+}
+
 @media (max-width: 900px) {
   .inner {
     grid-template-columns: 1fr;

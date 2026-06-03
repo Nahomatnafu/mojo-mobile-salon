@@ -1,4 +1,5 @@
 import SectionWrapper from './shared/SectionWrapper'
+import InstagramIcon from './shared/InstagramIcon'
 import styles from './Booking.module.css'
 
 export default function Booking() {
@@ -17,8 +18,8 @@ export default function Booking() {
 
           <aside className={styles.depositNotice}>
             <div>
-              <strong>$25 Non-Refundable Deposit Required</strong>
-              <p>A $25 deposit is required at the time of booking to secure your appointment. This deposit goes toward your total service cost.</p>
+              <strong>Non-Refundable Deposit Required</strong>
+              <p>A non-refundable deposit is required at the time of booking to secure your appointment. This deposit goes toward your total service cost.</p>
             </div>
           </aside>
 
@@ -47,16 +48,28 @@ export default function Booking() {
               Book an Appointment
             </a>
 
-            <p className={styles.ctaOr}>or call us directly</p>
+            <p className={styles.ctaOr}>or call / text us directly</p>
 
-            <a href="tel:+12127319918" className={styles.ctaPhone}>
-              (212) 731-9918
+            <a href="tel:+19176401279" className={styles.ctaPhone}>
+              917-640-1279
             </a>
 
             <div className={styles.ctaFootnotes}>
               <p>By appointment only</p>
-              <p>Mon–Sun &nbsp;6:00 AM – 9:00 PM</p>
+              <p>Mon–Sun &nbsp;9:00 AM – 9:00 PM</p>
               <p>Manhattan Avenue, Manhattan, NY 10025</p>
+              <a href="mailto:hairwegoexpress@gmail.com" className={styles.ctaContactLink}>
+                hairwegoexpress@gmail.com
+              </a>
+              <a
+                href="https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaContactLink}
+              >
+                <InstagramIcon size={13} />
+                @hairwegoexpress
+              </a>
             </div>
           </div>
         </div>

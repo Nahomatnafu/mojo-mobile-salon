@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import logo from '../assets/mojo_logo.png'
+import logo from '../assets/hair_we_go_logo.png'
 import styles from './Navbar.module.css'
 
 const links = [
@@ -44,8 +44,9 @@ export default function Navbar({ page, onGoHome, onGoPricing }) {
       <nav className={`${styles.nav} container`}>
         <button className={styles.logo} onClick={handleLogoClick} aria-label="Go to home">
           <div className={styles.logoCircle}>
-            <img src={logo} alt="Mojo Mobile Suites Salon" className={styles.logoImg} />
+            <img src={logo} alt="Hair We Go Express" className={styles.logoImg} />
           </div>
+          <span className={styles.logoTagline}>Express Your Hair</span>
         </button>
 
         <ul className={`${styles.links} ${open ? styles.open : ''}`}>

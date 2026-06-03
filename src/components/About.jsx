@@ -20,7 +20,7 @@ export default function About() {
             A <span>Personal</span> Experience<br />Like No Other
           </h2>
           <p className={styles.body}>
-            At <strong>Mojo Mobile Suites Salon</strong>, we believe beauty is deeply{' '}
+            At <strong>Hair We Go Express</strong>, we believe beauty is deeply{' '}
             <em className={styles.em}>personal</em>. That&rsquo;s why we bring the salon directly
             to you — a fully licensed &amp; insured, unisex mobile salon providing a
             multitude of services on your terms, on your schedule.

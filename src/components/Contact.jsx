@@ -2,7 +2,7 @@ import SectionWrapper from './shared/SectionWrapper'
 import InstagramIcon from './shared/InstagramIcon'
 import styles from './Contact.module.css'
 
-const IG_URL = 'https://www.instagram.com/mojomobilesuites'
+const IG_URL = 'https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv'
 
 export default function Contact() {
   return (
@@ -14,9 +14,9 @@ export default function Contact() {
         </div>
 
         <div className={styles.card}>
-          <a href="tel:+12127319918" className={styles.phoneBlock}>
+          <a href="tel:+19176401279" className={styles.phoneBlock}>
             <div className={styles.phoneLabel}>Call or Text</div>
-            <div className={styles.phoneNumber}>(212) 731-9918</div>
+            <div className={styles.phoneNumber}>917-640-1279</div>
           </a>
 
           <div className={styles.infoGrid}>
@@ -27,7 +27,14 @@ export default function Contact() {
 
             <div className={styles.infoItem}>
               <div className={styles.infoLabel}>Hours</div>
-              <div className={styles.infoValue}>Monday – Sunday<br />6:00 AM – 9:00 PM</div>
+              <div className={styles.infoValue}>Monday – Sunday<br />9:00 AM – 9:00 PM</div>
+            </div>
+
+            <div className={styles.infoItem}>
+              <div className={styles.infoLabel}>Email</div>
+              <a href="mailto:hairwegoexpress@gmail.com" className={styles.igLink}>
+                hairwegoexpress@gmail.com
+              </a>
             </div>
 
             <div className={styles.infoItem}>
@@ -39,7 +46,7 @@ export default function Contact() {
                 className={styles.igLink}
               >
                 <InstagramIcon size={16} />
-                @mojomobilesuites
+                @hairwegoexpress
               </a>
             </div>
           </div>
