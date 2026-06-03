@@ -2,12 +2,18 @@ import { motion } from 'framer-motion'
 import SectionWrapper from './shared/SectionWrapper'
 import styles from './Amenities.module.css'
 
+import wifiImg     from '../assets/wifi_logo.png'
+import cabletvImg  from '../assets/cabletv_logo.png'
+import musicImg    from '../assets/music_logo.png'
+import chargingImg from '../assets/charging_logo.png'
+import drinksImg   from '../assets/drinks_logo.png'
+
 const amenities = [
-  { letter: 'Wi', label: 'Free Wi-Fi',          desc: 'Stay connected throughout your visit' },
-  { letter: 'TV', label: 'Cable TV',            desc: 'Enjoy live TV while you relax' },
-  { letter: 'M',  label: 'Music',               desc: 'Great vibes, your soundtrack' },
-  { letter: 'C',  label: 'Phone Charging',      desc: 'Keep your devices powered up' },
-  { letter: 'D',  label: 'Complimentary Drinks', desc: 'Refresh with a complimentary beverage' },
+  { img: wifiImg,     alt: 'Wi-Fi',     label: 'Free Wi-Fi',           desc: 'Stay connected throughout your visit' },
+  { img: cabletvImg,  alt: 'Cable TV',  label: 'Cable TV',             desc: 'Enjoy live TV while you relax' },
+  { img: musicImg,    alt: 'Music',     label: 'Music',                desc: 'Great vibes, your soundtrack' },
+  { img: chargingImg, alt: 'Charging',  label: 'Phone Charging',       desc: 'Keep your devices powered up' },
+  { img: drinksImg,   alt: 'Drinks',    label: 'Complimentary Drinks', desc: 'Refresh with a complimentary beverage' },
 ]
 
 const container = {
@@ -42,7 +48,7 @@ export default function Amenities() {
           {amenities.map((a) => (
             <motion.div key={a.label} className={styles.item} variants={itemAnim}>
               <div className={styles.iconWrap}>
-                <span className={styles.letter}>{a.letter}</span>
+                <img src={a.img} alt={a.alt} className={styles.iconImg} />
               </div>
               <h3 className={styles.label}>{a.label}</h3>
               <p className={styles.desc}>{a.desc}</p>
