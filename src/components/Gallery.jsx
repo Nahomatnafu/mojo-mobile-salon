@@ -15,15 +15,15 @@ import photo10 from '../assets/photo_10.jpg'
 import photo11 from '../assets/photo_11.jpg'
 
 const photos = [
-  { src: photo01, alt: 'Mojo Mobile Suites Salon — interior view 1' },
-  { src: photo04, alt: 'Mojo Mobile Suites Salon — interior view 4' },
-  { src: photo05, alt: 'Mojo Mobile Suites Salon — interior view 5' },
-  { src: photo06, alt: 'Mojo Mobile Suites Salon — interior view 6' },
-  { src: photo07, alt: 'Mojo Mobile Suites Salon — interior view 7' },
-  { src: photo08, alt: 'Mojo Mobile Suites Salon — interior view 8' },
-  { src: photo09, alt: 'Mojo Mobile Suites Salon — interior view 9' },
-  { src: photo10, alt: 'Mojo Mobile Suites Salon — interior view 10' },
-  { src: photo11, alt: 'Mojo Mobile Suites Salon — interior view 11' },
+  { src: photo01, alt: 'Hair We Go Express — interior view 1' },
+  { src: photo04, alt: 'Hair We Go Express — interior view 2' },
+  { src: photo05, alt: 'Hair We Go Express — interior view 3' },
+  { src: photo06, alt: 'Hair We Go Express — interior view 4' },
+  { src: photo07, alt: 'Hair We Go Express — interior view 5' },
+  { src: photo08, alt: 'Hair We Go Express — interior view 6' },
+  { src: photo09, alt: 'Hair We Go Express — interior view 7' },
+  { src: photo10, alt: 'Hair We Go Express — interior view 8' },
+  { src: photo11, alt: 'Hair We Go Express — interior view 9' },
 ]
 
 const container = {
@@ -52,8 +52,8 @@ export default function Gallery() {
           <h2 className="section-heading">
             Our Mobile <span>Space</span>
           </h2>
-          <p className="section-sub" style={{ margin: '0 auto' }}>
-            Take a look inside the Mojo Mobile Suites Salon — a fully equipped, luxurious
+          <p className="section-sub" style={{ margin: '0 auto', textAlign: 'center' }}>
+            Take a look inside Hair We Go Express — a fully equipped, luxurious
             mobile salon experience that comes directly to you.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function Gallery() {
 
         <div className={styles.cta}>
           <a
-            href="https://www.instagram.com/mojomobilesuites"
+            href="https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv"
             target="_blank"
             rel="noopener noreferrer"
             className={`btn-outline ${styles.igBtn}`}

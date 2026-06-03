@@ -6,15 +6,8 @@
 /* ── Photo Grid ─────────────────────────────── */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.875rem;
-}
-
-/* Make certain tiles span 2 columns for visual variety */
-.grid > *:nth-child(1),
-.grid > *:nth-child(6),
-.grid > *:nth-child(9) {
-  grid-column: span 2;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
 .tile {
@@ -166,33 +159,19 @@
 }
 
 /* ── Responsive ───────────────────────────────── */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .grid > *:nth-child(1),
-  .grid > *:nth-child(6),
-  .grid > *:nth-child(9) {
-    grid-column: span 1;
-  }
-  .grid > *:nth-child(1) {
-    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
   .lbPrev { left: -1rem; }
   .lbNext { right: -1rem; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .grid > *:nth-child(1),
-  .grid > *:nth-child(6),
-  .grid > *:nth-child(9) {
-    grid-column: span 1;
-  }
-  .grid > *:nth-child(1) {
-    grid-column: span 2;
+    gap: 0.5rem;
   }
   .lbPrev { left: 0.25rem; }
   .lbNext { right: 0.25rem; }
