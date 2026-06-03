@@ -9,11 +9,11 @@ import chargingImg from '../assets/charging_logo.png'
 import drinksImg   from '../assets/drinks_logo.png'
 
 const amenities = [
-  { img: wifiImg,     alt: 'Wi-Fi',     label: 'Free Wi-Fi',           desc: 'Stay connected throughout your visit' },
-  { img: cabletvImg,  alt: 'Cable TV',  label: 'Cable TV',             desc: 'Enjoy live TV while you relax' },
+  { img: wifiImg,     alt: 'Wi-Fi',     label: 'Free Wi-Fi',           desc: 'Stay connected throughout your visit', small: true },
+  { img: cabletvImg,  alt: 'Cable TV',  label: 'Cable TV',             desc: 'Enjoy live TV while you relax',        small: true },
   { img: musicImg,    alt: 'Music',     label: 'Music',                desc: 'Great vibes, your soundtrack' },
-  { img: chargingImg, alt: 'Charging',  label: 'Phone Charging',       desc: 'Keep your devices powered up' },
-  { img: drinksImg,   alt: 'Drinks',    label: 'Complimentary Drinks', desc: 'Refresh with a complimentary beverage' },
+  { img: chargingImg, alt: 'Charging',  label: 'Phone Charging',       desc: 'Keep your devices powered up',         small: true },
+  { img: drinksImg,   alt: 'Drinks',    label: 'Complimentary Drinks', desc: 'Refresh with a complimentary beverage', small: true },
 ]
 
 const container = {
@@ -48,7 +48,7 @@ export default function Amenities() {
           {amenities.map((a) => (
             <motion.div key={a.label} className={styles.item} variants={itemAnim}>
               <div className={styles.iconWrap}>
-                <img src={a.img} alt={a.alt} className={styles.iconImg} />
+                <img src={a.img} alt={a.alt} className={a.small ? styles.iconImgSmall : styles.iconImg} />
               </div>
               <h3 className={styles.label}>{a.label}</h3>
               <p className={styles.desc}>{a.desc}</p>
