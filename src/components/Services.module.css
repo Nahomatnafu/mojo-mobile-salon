@@ -88,12 +88,20 @@
   border-radius: var(--radius-card);
   overflow: hidden;
   box-shadow: var(--shadow-card);
+  background: #0d0319;
 }
 
 .stripImg {
   width: 100%;
-  height: auto;
+  height: 420px;
+  object-fit: contain;
   display: block;
+}
+
+@media (max-width: 768px) {
+  .stripImg {
+    height: 260px;
+  }
 }
 
 .stripOverlay {
