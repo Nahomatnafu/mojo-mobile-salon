@@ -87,14 +87,12 @@
   margin-top: 3rem;
   border-radius: var(--radius-card);
   overflow: hidden;
-  height: 320px;
   box-shadow: var(--shadow-card);
 }
 
 .stripImg {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
@@ -123,10 +121,6 @@
 }
 
 @media (max-width: 600px) {
-  .photoStrip {
-    height: 220px;
-  }
-
   .stripOverlay {
     padding: 1rem 1.25rem;
   }

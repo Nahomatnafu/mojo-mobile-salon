@@ -181,8 +181,9 @@
 .heroPhoto {
   width: 100%;
   max-width: 460px;
-  height: 580px;
+  height: 406px;
   object-fit: cover;
+  object-position: center top;
   border-radius: 2rem;
   box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
@@ -217,7 +218,7 @@
   }
 
   .heroPhoto {
-    height: 360px;
+    height: 252px;
     max-width: 100%;
   }
 }
@@ -245,7 +246,7 @@
   }
 
   .heroPhoto {
-    height: 240px;
+    height: 168px;
   }
 
   .btnHero,
