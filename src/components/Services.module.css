@@ -88,19 +88,22 @@
   border-radius: var(--radius-card);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  background: #0d0319;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stripImg {
-  width: 100%;
-  height: 420px;
-  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-height: 420px;
   display: block;
 }
 
 @media (max-width: 768px) {
   .stripImg {
-    height: 260px;
+    max-height: 260px;
+    width: 100%;
   }
 }
 
