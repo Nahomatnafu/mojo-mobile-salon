@@ -1,8 +1,12 @@
 import SectionWrapper from './shared/SectionWrapper'
 import InstagramIcon from './shared/InstagramIcon'
+import FacebookIcon from './shared/FacebookIcon'
+import TikTokIcon from './shared/TikTokIcon'
 import styles from './Contact.module.css'
 
 const IG_URL = 'https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv'
+const FB_URL = 'https://www.facebook.com/hairwegoexpress'
+const TT_URL = 'https://www.tiktok.com/@hairwegoexpress'
 
 export default function Contact() {
   return (
@@ -38,16 +42,19 @@ export default function Contact() {
             </div>
 
             <div className={styles.infoItem}>
-              <div className={styles.infoLabel}>Instagram</div>
-              <a
-                href={IG_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.igLink}
-              >
-                <InstagramIcon size={16} />
-                @hairwegoexpress
-              </a>
+              <div className={styles.infoLabel}>Follow Us</div>
+              <div className={styles.socialRow}>
+                <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram">
+                  <InstagramIcon size={18} />
+                </a>
+                <a href={FB_URL} target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">
+                  <FacebookIcon size={18} />
+                </a>
+                <a href={TT_URL} target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="TikTok">
+                  <TikTokIcon size={18} />
+                </a>
+              </div>
+              <span className={styles.infoValue} style={{ fontSize: '0.82rem', color: 'var(--color-gray)' }}>@hairwegoexpress</span>
             </div>
           </div>
 
@@ -55,14 +62,17 @@ export default function Contact() {
             <a href="#booking" className="btn-primary">
               Book an Appointment
             </a>
-            <a
-              href={IG_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`btn-outline ${styles.igBtn}`}
-            >
+            <a href={IG_URL} target="_blank" rel="noopener noreferrer" className={`btn-outline ${styles.igBtn}`}>
               <InstagramIcon size={18} />
-              Follow Us
+              Instagram
+            </a>
+            <a href={FB_URL} target="_blank" rel="noopener noreferrer" className={`btn-outline ${styles.igBtn}`}>
+              <FacebookIcon size={18} />
+              Facebook
+            </a>
+            <a href={TT_URL} target="_blank" rel="noopener noreferrer" className={`btn-outline ${styles.igBtn}`}>
+              <TikTokIcon size={18} />
+              TikTok
             </a>
           </div>
         </div>

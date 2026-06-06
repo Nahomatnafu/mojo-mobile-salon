@@ -117,6 +117,25 @@
 
 .igLink:hover { opacity: 0.75; }
 
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.socialLink:hover {
+  opacity: 0.7;
+  transform: translateY(-2px);
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

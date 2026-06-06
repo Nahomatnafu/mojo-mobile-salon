@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import SectionWrapper from './shared/SectionWrapper'
+import servicesPhoto from '../assets/services.jpg'
 import styles from './Services.module.css'
 
 const services = [
@@ -59,6 +60,19 @@ export default function Services() {
               <a href="#booking" className={styles.cardLink}>Book this service →</a>
             </motion.div>
           ))}
+        </motion.div>
+
+        <motion.div
+          className={styles.photoStrip}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <img src={servicesPhoto} alt="Hair We Go Express services in action" className={styles.stripImg} />
+          <div className={styles.stripOverlay}>
+            <span className={styles.stripText}>Full-Service Mobile Salon — Unisex &nbsp;·&nbsp; By Appointment Only</span>
+          </div>
         </motion.div>
 
         <p className={styles.note}>By appointment only &nbsp;·&nbsp; 917-640-1279 &nbsp;·&nbsp; Mon–Sun 9 AM–9 PM</p>

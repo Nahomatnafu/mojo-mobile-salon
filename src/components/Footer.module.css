@@ -144,6 +144,30 @@ a.infoItem:hover {
   gap: 0.4rem;
 }
 
+.socialItems {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.socialIcon {
+  color: rgba(255, 255, 255, 0.78);
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.socialIcon:hover {
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.socialHandle {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
 /* Bottom bar */
 .bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);

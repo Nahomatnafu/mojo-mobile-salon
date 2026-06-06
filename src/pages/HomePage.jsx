@@ -1,4 +1,5 @@
 import Hero from '../components/Hero'
+import GrandOpening from '../components/GrandOpening'
 import About from '../components/About'
 import Gallery from '../components/Gallery'
 import Services from '../components/Services'
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <GrandOpening />
       <About />
       <Gallery />
       <Services />

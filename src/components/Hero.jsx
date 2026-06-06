@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Badge from './shared/Badge'
 import bgImage from '../assets/hair_we_go_bg.png'
-import heroPhoto from '../assets/photo_12_hero.jpg'
+import heroPhoto from '../assets/hero_picture_02.jpg'
 import styles from './Hero.module.css'
 
 const container = {

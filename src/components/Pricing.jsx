@@ -7,7 +7,7 @@ const cats = [
     {name:'Hair Cut', price:'$35–$100'},
     {name:'Razor Cut', price:'$75–$100'},
     {name:'Bang Trim', price:'$20'},
-    {name:'Hair Wash', price:'$10–$20'},
+    {name:'Hair Wash', price:'$45+'},
     {name:'Blowout', price:'$45–$75'},
     {name:'Updo', price:'$85–$150'},
   ]},
@@ -45,7 +45,7 @@ const cats = [
     {name:'Shape Up', price:'$25–$35'},
     {name:'Beard Trim', price:'$10–$25'},
   ]},
-  { id:'waxing', label:'Waxing & Threading', services:[
+  { id:'waxing', label:'Threading', services:[
     {name:'Eyebrows Master Shape', price:'$20–$25'},
     {name:'Almond Treatment (Nurture Eyebrows)', price:'$10'},
     {name:'Chin', price:'$15'},
@@ -53,14 +53,6 @@ const cats = [
     {name:'Eyebrows + Lip', price:'$35–$40'},
     {name:'Eyebrows + Lip + Chin', price:'$45–$65'},
     {name:'Full Face', price:'$55–$70'},
-    {name:'Full Leg', price:'$55–$75'},
-    {name:'Full Leg with Bikini Line', price:'$95–$115'},
-    {name:'Bikini Line', price:'$35–$45'},
-    {name:'Brazilian Bikini', price:'$55–$75'},
-    {name:'Half Leg (Lower / Upper Leg)', price:'$45–$75'},
-    {name:'Half Leg with Bikini', price:'$75–$110'},
-    {name:'Underarm', price:'$25–$35'},
-    {name:'Arm (Half / Full)', price:'$35–$55'},
   ]},
   { id:'lashes', label:'Eyelash Extensions', note:'Available in Short, Medium, Long & Mix', services:[
     {name:'Short Lashes – Full Set', price:'$65–$130'},

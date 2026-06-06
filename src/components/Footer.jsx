@@ -1,5 +1,7 @@
 import logo from '../assets/hair_we_go_logo.png'
 import InstagramIcon from './shared/InstagramIcon'
+import FacebookIcon from './shared/FacebookIcon'
+import TikTokIcon from './shared/TikTokIcon'
 import styles from './Footer.module.css'
 
 const navLinks = [
@@ -52,15 +54,18 @@ export default function Footer() {
             <div className={styles.infoItem}>
               Mon–Sun &nbsp;9:00 AM – 9:00 PM
             </div>
-            <a
-              href="https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.infoItem} ${styles.igItem}`}
-            >
-              <InstagramIcon size={15} />
-              @hairwegoexpress
-            </a>
+            <div className={`${styles.infoItem} ${styles.socialItems}`}>
+              <a href="https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
+                <InstagramIcon size={16} />
+              </a>
+              <a href="https://www.facebook.com/hairwegoexpress" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Facebook">
+                <FacebookIcon size={16} />
+              </a>
+              <a href="https://www.tiktok.com/@hairwegoexpress" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="TikTok">
+                <TikTokIcon size={16} />
+              </a>
+              <span className={styles.socialHandle}>@hairwegoexpress</span>
+            </div>
           </div>
         </div>
       </div>
