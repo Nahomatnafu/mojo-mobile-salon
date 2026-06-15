@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import SectionWrapper from './shared/SectionWrapper'
 import styles from './Pricing.module.css'
 
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRrimx_d5gOuCBh0ZLsnU7bWvy44YPVTdNizTFGhK055hqYy7lWcyjuMu0nXFMyVFquqsVeAA-TKBgQ/pub?output=csv'
+const BIN_ID = '6a307f58da38895dfec68c14'
+const API_KEY = import.meta.env.VITE_JSONBIN_KEY
 
 const FALLBACK_CATS = [
   { id:'hair', label:'Hair Services', services:[
@@ -69,52 +70,20 @@ const FALLBACK_CATS = [
   ]},
 ]
 
-/** Parse a CSV string into an array of row objects keyed by header names. */
-function parseCSV(text) {
-  const lines = text.trim().split('\n')
-  if (lines.length < 2) return []
-  const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''))
-  return lines.slice(1).filter(l => l.trim()).map(line => {
-    const values = []
-    let cur = '', inQuotes = false
-    for (const ch of line) {
-      if (ch === '"') { inQuotes = !inQuotes }
-      else if (ch === ',' && !inQuotes) { values.push(cur.trim()); cur = '' }
-      else { cur += ch }
-    }
-    values.push(cur.trim())
-    return Object.fromEntries(headers.map((h, i) => [h, (values[i] ?? '').replace(/^"|"$/g, '').trim()]))
-  })
-}
 
-/** Group flat CSV rows into the nested category structure the UI expects. */
-function buildCats(rows) {
-  const map = {}, order = []
-  rows.forEach(row => {
-    if (!row.category_id || !row.service_name) return
-    if (!map[row.category_id]) {
-      map[row.category_id] = { id: row.category_id, label: row.category_label, services: [] }
-      order.push(row.category_id)
-    }
-    map[row.category_id].services.push({
-      name: row.service_name,
-      price: row.price || null,
-      consult: row.consult?.toLowerCase() === 'true',
-    })
-  })
-  return order.map(id => map[id])
-}
 
 export default function Pricing({ fullPage = false }) {
   const [cats, setCats] = useState(FALLBACK_CATS)
   const [active, setActive] = useState('hair')
 
   useEffect(() => {
-    fetch(SHEET_URL)
-      .then(r => r.text())
-      .then(text => {
-        const rows = parseCSV(text)
-        const parsed = buildCats(rows)
+    if (!API_KEY) return
+    fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: { 'X-Master-Key': API_KEY }
+    })
+      .then(r => r.json())
+      .then(data => {
+        const parsed = data.record?.categories || []
         if (parsed.length > 0) {
           setCats(parsed)
           setActive(parsed[0].id)

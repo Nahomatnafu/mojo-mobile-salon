@@ -1,0 +1,166 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  min-height: 100vh;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: opacity var(--transition);
+}
+
+.backBtn:hover {
+  opacity: 0.75;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+/* PIN Entry */
+.pinForm {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 3rem 2rem;
+  max-width: 400px;
+  margin: 4rem auto;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.pinForm h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.pinInput {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.submitBtn:hover {
+  opacity: 0.9;
+}
+
+/* Editor */
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.category {
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.category h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  color: var(--color-primary);
+  border-bottom: 2px solid rgba(192, 132, 252, 0.2);
+  padding-bottom: 0.75rem;
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.service:last-child {
+  border-bottom: none;
+}
+
+.nameInput,
+.priceInput {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.nameInput {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.priceInput {
+  text-align: right;
+}
+
+.consulTag {
+  display: inline-block;
+  background: var(--color-accent-soft);
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.saveBtn {
+  background: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: opacity var(--transition);
+  font-size: 1rem;
+}
+
+.saveBtn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  font-weight: 600;
+  margin: 0;
+}
