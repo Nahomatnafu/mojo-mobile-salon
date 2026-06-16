@@ -58,10 +58,10 @@ export default function Footer() {
               <a href="https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram">
                 <InstagramIcon size={16} />
               </a>
-              <a href="https://www.facebook.com/hairwegoexpress" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Facebook">
+              <a href="https://www.facebook.com/people/hairwegoexpress/61590541020594/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Facebook">
                 <FacebookIcon size={16} />
               </a>
-              <a href="https://www.tiktok.com/@hairwegoexpress" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="TikTok">
+              <a href="https://www.tiktok.com/@hair.we.go.expres" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="TikTok">
                 <TikTokIcon size={16} />
               </a>
               <span className={styles.socialHandle}>@hairwegoexpress</span>

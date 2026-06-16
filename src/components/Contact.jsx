@@ -5,8 +5,8 @@ import TikTokIcon from './shared/TikTokIcon'
 import styles from './Contact.module.css'
 
 const IG_URL = 'https://www.instagram.com/hairwegoexpress?igsh=MXhhNXN3MXV2bnlv'
-const FB_URL = 'https://www.facebook.com/hairwegoexpress'
-const TT_URL = 'https://www.tiktok.com/@hairwegoexpress'
+const FB_URL = 'https://www.facebook.com/people/hairwegoexpress/61590541020594/'
+const TT_URL = 'https://www.tiktok.com/@hair.we.go.expres'
 
 export default function Contact() {
   return (

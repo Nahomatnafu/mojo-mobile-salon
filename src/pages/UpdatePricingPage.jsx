@@ -15,7 +15,7 @@ export default function UpdatePricingPage({ onBack }) {
   const handlePinSubmit = async (e) => {
     e.preventDefault()
     if (pin !== ADMIN_PIN) {
-      setMessage('❌ Incorrect PIN')
+      setMessage('Incorrect PIN. Please try again.')
       return
     }
     setAuthenticated(true)
@@ -31,7 +31,7 @@ export default function UpdatePricingPage({ onBack }) {
       const data = await res.json()
       setCats(data.record.categories || [])
     } catch (err) {
-      setMessage('❌ Failed to load pricing')
+      setMessage('Failed to load pricing. Check your connection.')
     }
   }
 
@@ -51,12 +51,12 @@ export default function UpdatePricingPage({ onBack }) {
         body: JSON.stringify(payload)
       })
       if (res.ok) {
-        setMessage('✅ Pricing saved! Updates live in seconds.')
+        setMessage('Pricing saved! Updates are live in seconds.')
       } else {
-        setMessage('❌ Save failed')
+        setMessage('Save failed. Please try again.')
       }
     } catch (err) {
-      setMessage('❌ Network error')
+      setMessage('Network error. Check your connection.')
     }
     setSaving(false)
   }

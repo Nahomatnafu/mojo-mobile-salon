@@ -163,4 +163,48 @@ h1 {
 .message {
   font-weight: 600;
   margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+/* ── Mobile ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .container {
+    padding: 2rem 0.75rem;
+  }
+
+  .pinForm {
+    padding: 2rem 1.25rem;
+    margin: 2rem auto;
+  }
+
+  .category {
+    padding: 1rem 0.75rem;
+  }
+
+  .service {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .nameInput,
+  .priceInput {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .priceInput {
+    text-align: left;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .saveBtn {
+    width: 100%;
+    text-align: center;
+  }
 }
