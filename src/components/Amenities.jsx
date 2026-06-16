@@ -6,7 +6,7 @@ import wifiImg     from '../assets/wifi_logo.png'
 import cabletvImg  from '../assets/cabletv_logo.png'
 import musicImg    from '../assets/music_logo.png'
 import chargingImg from '../assets/charging_logo.png'
-import drinksImg   from '../assets/drinks_logo.png'
+import drinksImg   from '../assets/drinks_logo_v02.png'
 
 const amenities = [
   { img: wifiImg,     alt: 'Wi-Fi',     label: 'Free Wi-Fi',           desc: 'Stay connected throughout your visit', small: true },
