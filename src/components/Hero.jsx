@@ -1,8 +1,12 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Badge from './shared/Badge'
-import bgImage from '../assets/hair_we_go_bg.png'
-import heroPhoto from '../assets/hero_picture_02.jpg'
+import bgImageFallback from '../assets/hair_we_go_bg.png'
+import heroPhotoFallback from '../assets/hero_picture_02.jpg'
 import styles from './Hero.module.css'
+
+const BIN_ID = '6a307f58da38895dfec68c14'
+const API_KEY = import.meta.env.VITE_JSONBIN_KEY
 
 const container = {
   hidden: {},
@@ -15,6 +19,25 @@ const item = {
 }
 
 export default function Hero() {
+  const [heroPhoto, setHeroPhoto] = useState(heroPhotoFallback)
+  const [bgImage, setBgImage]     = useState(bgImageFallback)
+
+  useEffect(() => {
+    if (!API_KEY) return
+    fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: { 'X-Master-Key': API_KEY }
+    })
+      .then(r => r.json())
+      .then(data => {
+        const imgs = data.record?.images || []
+        const hero = imgs.find(i => i.id === 'hero_photo')
+        const bg   = imgs.find(i => i.id === 'hero_bg')
+        if (hero?.url) setHeroPhoto(hero.url)
+        if (bg?.url)   setBgImage(bg.url)
+      })
+      .catch(() => {})
+  }, [])
+
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.bg} style={{ backgroundImage: `url(${bgImage})` }} />

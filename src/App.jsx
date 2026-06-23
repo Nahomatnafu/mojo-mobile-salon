@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import PricingPage from './pages/PricingPage'
 import UpdatePricingPage from './pages/UpdatePricingPage'
+import UpdatePhotosPage from './pages/UpdatePhotosPage'
 
 export default function App() {
   const [page, setPage] = useState('home')
@@ -11,9 +12,8 @@ export default function App() {
   // Handle URL-based navigation (for /updatepricing)
   useEffect(() => {
     const path = window.location.pathname
-    if (path === '/updatepricing') {
-      setPage('updatepricing')
-    }
+    if (path === '/updatepricing') setPage('updatepricing')
+    if (path === '/updatephotos')  setPage('updatephotos')
   }, [])
 
   const goHome = useCallback(() => {
@@ -29,13 +29,14 @@ export default function App() {
 
   return (
     <>
-      {page !== 'updatepricing' && <Navbar page={page} onGoHome={goHome} onGoPricing={goPricing} />}
+      {page !== 'updatepricing' && page !== 'updatephotos' && <Navbar page={page} onGoHome={goHome} onGoPricing={goPricing} />}
       <main>
         {page === 'home'          && <HomePage />}
         {page === 'pricing'       && <PricingPage onBack={goHome} />}
         {page === 'updatepricing' && <UpdatePricingPage onBack={goHome} />}
+        {page === 'updatephotos'  && <UpdatePhotosPage onBack={goHome} />}
       </main>
-      {page !== 'updatepricing' && <Footer />}
+      {page !== 'updatepricing' && page !== 'updatephotos' && <Footer />}
     </>
   )
 }

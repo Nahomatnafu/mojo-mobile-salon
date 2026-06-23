@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SectionWrapper from './shared/SectionWrapper'
 import InstagramIcon from './shared/InstagramIcon'
@@ -14,7 +14,10 @@ import photo09 from '../assets/photo_09.jpg'
 import photo10 from '../assets/photo_10.jpg'
 import photo11 from '../assets/photo_11.jpg'
 
-const photos = [
+const BIN_ID = '6a307f58da38895dfec68c14'
+const API_KEY = import.meta.env.VITE_JSONBIN_KEY
+
+const FALLBACK_PHOTOS = [
   { src: photo01, alt: 'Hair We Go Express — interior view 1' },
   { src: photo04, alt: 'Hair We Go Express — interior view 2' },
   { src: photo05, alt: 'Hair We Go Express — interior view 3' },
@@ -37,7 +40,25 @@ const tile = {
 }
 
 export default function Gallery() {
-  const [lightbox, setLightbox] = useState(null) // index of open photo
+  const [photos, setPhotos] = useState(FALLBACK_PHOTOS)
+  const [lightbox, setLightbox] = useState(null)
+
+  useEffect(() => {
+    if (!API_KEY) return
+    fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+      headers: { 'X-Master-Key': API_KEY }
+    })
+      .then(r => r.json())
+      .then(data => {
+        const stored = data.record?.images || []
+        setPhotos(FALLBACK_PHOTOS.map((photo, i) => {
+          const id = `gallery_${String(i + 1).padStart(2, '0')}`
+          const match = stored.find(s => s.id === id)
+          return match?.url ? { src: match.url, alt: photo.alt } : photo
+        }))
+      })
+      .catch(() => {})
+  }, [])
 
   const openLightbox  = (i) => setLightbox(i)
   const closeLightbox = ()  => setLightbox(null)
