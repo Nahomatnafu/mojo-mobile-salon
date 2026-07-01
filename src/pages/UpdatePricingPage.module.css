@@ -23,8 +23,14 @@
 h1 {
   font-family: var(--font-display);
   font-size: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--color-text);
+}
+
+.helper {
+  color: var(--color-text-muted);
+  margin: -0.25rem 0 2rem;
+  max-width: 620px;
 }
 
 /* PIN Entry */
@@ -110,6 +116,15 @@ h1 {
   font-size: 0.9rem;
   border: 1px solid rgba(192, 132, 252, 0.2);
   border-radius: var(--radius-sm);
+  min-width: 0;
+}
+
+.nameInput:focus,
+.priceInput:focus,
+.pinInput:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(123, 47, 190, 0.12);
+  outline: none;
 }
 
 .nameInput {
@@ -172,6 +187,10 @@ h1 {
 @media (max-width: 600px) {
   .container {
     padding: 2rem 0.75rem;
+  }
+
+  h1 {
+    font-size: 2rem;
   }
 
   .pinForm {

@@ -17,7 +17,7 @@ export default function PricingPage({ onBack }) {
             Service <span>Menu</span>
           </h1>
           <p className={styles.pageSub}>
-            All services by appointment only &nbsp;·&nbsp; Prices may vary based on hair length &amp; complexity
+            All services by appointment only. Prices may vary based on hair length and complexity.
           </p>
         </div>
       </div>

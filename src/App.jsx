@@ -6,26 +6,41 @@ import PricingPage from './pages/PricingPage'
 import UpdatePricingPage from './pages/UpdatePricingPage'
 import UpdatePhotosPage from './pages/UpdatePhotosPage'
 
-export default function App() {
-  const [page, setPage] = useState('home')
+const getPageFromPath = () => {
+  switch (window.location.pathname) {
+    case '/pricing':
+      return 'pricing'
+    case '/updatepricing':
+      return 'updatepricing'
+    case '/updatephotos':
+      return 'updatephotos'
+    default:
+      return 'home'
+  }
+}
 
-  // Handle URL-based navigation (for /updatepricing)
+export default function App() {
+  const [page, setPage] = useState(getPageFromPath)
+
   useEffect(() => {
-    const path = window.location.pathname
-    if (path === '/updatepricing') setPage('updatepricing')
-    if (path === '/updatephotos')  setPage('updatephotos')
+    const handlePopState = () => setPage(getPageFromPath())
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  const navigate = useCallback((nextPage, path) => {
+    setPage(nextPage)
+    if (window.location.pathname !== path) window.history.pushState({}, '', path)
+    window.scrollTo({ top: 0, behavior: 'instant' })
   }, [])
 
   const goHome = useCallback(() => {
-    setPage('home')
-    window.history.pushState({}, '', '/')
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [])
+    navigate('home', '/')
+  }, [navigate])
 
   const goPricing = useCallback(() => {
-    setPage('pricing')
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [])
+    navigate('pricing', '/pricing')
+  }, [navigate])
 
   return (
     <>

@@ -27,9 +27,11 @@ export default function UpdatePhotosPage({ onBack }) {
   const [pin, setPin] = useState('')
   const [authenticated, setAuthenticated] = useState(false)
   const [images, setImages] = useState([])
+  const [loading, setLoading] = useState(false)
   const [uploading, setUploading] = useState(null)
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState('')
+  const [hasChanges, setHasChanges] = useState(false)
   const fileRefs = useRef({})
 
   const handlePinSubmit = async (e) => {
@@ -41,6 +43,7 @@ export default function UpdatePhotosPage({ onBack }) {
   }
 
   const fetchImages = async () => {
+    setLoading(true)
     try {
       const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
         headers: { 'X-Master-Key': API_KEY }
@@ -51,9 +54,12 @@ export default function UpdatePhotosPage({ onBack }) {
         ...slot,
         url: stored.find(s => s.id === slot.id)?.url || ''
       })))
+      setHasChanges(false)
     } catch {
       setImages(IMAGE_SLOTS.map(s => ({ ...s, url: '' })))
+      setMessage('Failed to load current photos. Default images are shown below.')
     }
+    setLoading(false)
   }
 
   const handleFileChange = async (e, slotId) => {
@@ -73,6 +79,8 @@ export default function UpdatePhotosPage({ onBack }) {
         setImages(prev => prev.map(img =>
           img.id === slotId ? { ...img, url: data.secure_url } : img
         ))
+        setHasChanges(true)
+        setMessage('Photo uploaded. Use Save & Publish to make it live.')
       } else {
         setMessage('Upload failed. Please try again.')
       }
@@ -94,7 +102,12 @@ export default function UpdatePhotosPage({ onBack }) {
         headers: { 'X-Master-Key': API_KEY, 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...existing.record, images })
       })
-      setMessage(putRes.ok ? 'Photos saved! Updates are live in seconds.' : 'Save failed. Please try again.')
+      if (putRes.ok) {
+        setMessage('Photos saved! Updates are live in seconds.')
+        setHasChanges(false)
+      } else {
+        setMessage('Save failed. Please try again.')
+      }
     } catch {
       setMessage('Network error. Check your connection.')
     }
@@ -121,7 +134,9 @@ export default function UpdatePhotosPage({ onBack }) {
     <div className={styles.container}>
       <button onClick={onBack} className={styles.backBtn}>← Back to Home</button>
       <h1>Update Photos</h1>
-      {SECTIONS.map(section => (
+      <p className={styles.helper}>Choose a photo for any slot, wait for upload to finish, then use Save &amp; Publish.</p>
+      {loading && <p className={styles.message}>Loading current photos...</p>}
+      {!loading && SECTIONS.map(section => (
         <div key={section} className={styles.section}>
           <h2 className={styles.sectionTitle}>{section}</h2>
           <div className={styles.grid}>
@@ -152,8 +167,8 @@ export default function UpdatePhotosPage({ onBack }) {
         </div>
       ))}
       <div className={styles.actions}>
-        <button onClick={handleSave} disabled={saving} className={styles.saveBtn}>
-          {saving ? 'Saving...' : 'Save & Publish'}
+        <button onClick={handleSave} disabled={saving || loading || uploading || !hasChanges} className={styles.saveBtn}>
+          {saving ? 'Saving...' : hasChanges ? 'Save & Publish' : 'Saved'}
         </button>
         {message && <p className={styles.message}>{message}</p>}
       </div>

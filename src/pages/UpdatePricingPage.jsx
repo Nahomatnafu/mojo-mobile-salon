@@ -9,8 +9,10 @@ export default function UpdatePricingPage({ onBack }) {
   const [pin, setPin] = useState('')
   const [authenticated, setAuthenticated] = useState(false)
   const [cats, setCats] = useState([])
+  const [loading, setLoading] = useState(false)
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState('')
+  const [hasChanges, setHasChanges] = useState(false)
 
   const handlePinSubmit = async (e) => {
     e.preventDefault()
@@ -24,34 +26,48 @@ export default function UpdatePricingPage({ onBack }) {
   }
 
   const fetchPricing = async () => {
+    setLoading(true)
     try {
       const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
         headers: { 'X-Master-Key': API_KEY }
       })
       const data = await res.json()
       setCats(data.record.categories || [])
+      setHasChanges(false)
     } catch (err) {
       setMessage('Failed to load pricing. Check your connection.')
     }
+    setLoading(false)
   }
 
   const updateService = (catIdx, srvIdx, field, value) => {
-    const updated = [...cats]
-    updated[catIdx].services[srvIdx][field] = value
-    setCats(updated)
+    setCats(prev => prev.map((cat, currentCatIdx) => {
+      if (currentCatIdx !== catIdx) return cat
+      return {
+        ...cat,
+        services: cat.services.map((srv, currentSrvIdx) => (
+          currentSrvIdx === srvIdx ? { ...srv, [field]: value } : srv
+        ))
+      }
+    }))
+    setHasChanges(true)
   }
 
   const handleSave = async () => {
     setSaving(true)
     try {
-      const payload = { categories: cats }
+      const getRes = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+        headers: { 'X-Master-Key': API_KEY }
+      })
+      const existing = await getRes.json()
       const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
         method: 'PUT',
         headers: { 'X-Master-Key': API_KEY, 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ ...existing.record, categories: cats })
       })
       if (res.ok) {
         setMessage('Pricing saved! Updates are live in seconds.')
+        setHasChanges(false)
       } else {
         setMessage('Save failed. Please try again.')
       }
@@ -86,6 +102,8 @@ export default function UpdatePricingPage({ onBack }) {
     <div className={styles.container}>
       <button onClick={onBack} className={styles.backBtn}>← Back to Home</button>
       <h1>Update Pricing</h1>
+      <p className={styles.helper}>Edit service names or prices, then use Save &amp; Publish when you are done.</p>
+      {loading ? <p className={styles.message}>Loading current pricing...</p> : (
       <div className={styles.editor}>
         {cats.map((cat, catIdx) => (
           <div key={cat.id} className={styles.category}>
@@ -114,9 +132,10 @@ export default function UpdatePricingPage({ onBack }) {
           </div>
         ))}
       </div>
+      )}
       <div className={styles.actions}>
-        <button onClick={handleSave} disabled={saving} className={styles.saveBtn}>
-          {saving ? 'Saving...' : 'Save & Publish'}
+        <button onClick={handleSave} disabled={saving || loading || !hasChanges} className={styles.saveBtn}>
+          {saving ? 'Saving...' : hasChanges ? 'Save & Publish' : 'Saved'}
         </button>
         {message && <p className={styles.message}>{message}</p>}
       </div>

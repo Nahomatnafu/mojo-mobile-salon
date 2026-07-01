@@ -56,12 +56,13 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1 variants={item} className={styles.heading}>
-            HAIR WE GO<br />
+            HAIR<br />
+            WE GO<br />
             <span className={styles.headingAccent}>Express</span>
           </motion.h1>
 
           <motion.p variants={item} className={styles.tagline}>
-            &ldquo;The Mobile Salon With a Real Personal Touch&rdquo;
+            The Mobile Salon With a Real Personal Touch
           </motion.p>
 
           <motion.p variants={item} className={styles.sub}>
